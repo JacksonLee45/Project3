@@ -13,8 +13,9 @@ public class Main {
 
         for(int i = 1; i <= days; i++) {  //Simulates Each Day
 
-
-
+            Roll roll=new JellyRoll();
+            roll=new Sauce(roll);
+            System.out.println(roll.cost());
         }
 
     }

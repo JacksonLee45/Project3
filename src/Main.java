@@ -17,6 +17,9 @@ public class Main {
             Roll roll=new JellyRoll();
             roll=new Sauce(roll);
             System.out.println(roll.cost());
+
+            Person testCustomer = new Person();
+            testCustomer.buyRoll();
         }
 
     }

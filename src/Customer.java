@@ -4,7 +4,7 @@ abstract class Customer {
 
     String name;
 
-    public abstract void buyRoll();
+    public abstract int[] buyRoll();
         //Decides on how many rolls to buy (1-3 rolls of a single type)
 
 

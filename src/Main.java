@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
 
@@ -18,8 +19,27 @@ public class Main {
             roll=new Sauce(roll);
             System.out.println(roll.cost());
 
+
+
+            //Customers return an array with the quantities of their purchases in this form:
+            //[spring rolls, egg rolls, pastry rolls, sausage rolls, jelly rolls, sauces, fillings, toppings]
+            //meaning a returned array that looks like :
+            //[0,1,0,2,0,1,3,0]
+            //says that the customer got 1 egg roll, 2 sausage rolls, 1 sauce and 3 fillings
+            //This is for ease of calculating costs
+
             Person testCustomer = new Person();
-            testCustomer.buyRoll();
+            int[] numBoughtCustomer = testCustomer.buyRoll();
+            System.out.println(Arrays.toString(numBoughtCustomer));
+
+            BusinessPerson testBusiness = new BusinessPerson();
+            int[] numBoughtBusiness = testBusiness.buyRoll();
+            System.out.println(Arrays.toString(numBoughtBusiness));
+
+            Catering testCatering = new Catering();
+            int[] numBoughtCatering = testCatering.buyRoll();
+            System.out.println(Arrays.toString(numBoughtCatering));
+
         }
 
     }

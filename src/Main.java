@@ -1,8 +1,16 @@
 import java.util.*;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        Result result = JUnitCore.runClasses(MyUnitTest.class);
+        for(Failure failure : result.getFailures()){
+            System.out.println(failure.toString());
+        }
 
         Store ourStore = new Store(30); //Constructs the Store starts it with 30 rolls each
 

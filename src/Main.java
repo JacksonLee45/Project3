@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Store ourStore = new Store(30); //Constructs the Store starts it with 30 rolls each
+        Store ourStore = new Store(60); //Constructs the Store starts it with 30 rolls each
 
         StoreAnnouncer Announcer = new StoreAnnouncer();
         ourStore.registerObserver(Announcer);
@@ -15,6 +15,7 @@ public class Main {
         int days = myScanner.nextInt();
 
         for(int j = 1; j <= days; j++) {  //Simulates Each Day
+            System.out.println("Start of day number "+j);
             ourStore.startDay();
             ArrayList<Customer> customerList=new ArrayList<Customer>();
             Random rand = new Random();

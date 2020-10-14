@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Store implements Subject{
 
@@ -34,6 +36,8 @@ public class Store implements Subject{
     float numSales;
     int inScale;
     double totalSales;
+    int impacted;
+    ArrayList<Receipt> receipts=new ArrayList<Receipt>();
 
     public void update(String update){
         System.out.println(update);
@@ -49,6 +53,8 @@ public class Store implements Subject{
     public void takeCustomer(Customer customer) {
         if (Inventory.isEmpty()) {notifyObservers("Customer left because the store was closed due to no inventory.");return;}
         ArrayList<Roll> basket = new ArrayList<Roll>();
+        Receipt receipt=new Receipt();
+        receipt.customer=customer.name;
         while (!customer.getOrder().isEmpty()) {
 
             ArrayList<RollEnum> tempList = customer.getOrder();
@@ -58,12 +64,14 @@ public class Store implements Subject{
             }
             while (basket.remove(null)) ;
             if (!customer.isSatisfied(basket)) {
+                receipt.impacted=true;
                 Inventory.addAll(customer.Returns);
                 //basket.clear();
             }
         }
         if (basket.isEmpty()) notifyObservers(customer.name+" didn't buy anything.");
         else {
+            receipt.sales.addAll(basket);
             for (Roll roll : basket) {
                 Random rand = new Random();
                 int roll1 = rand.nextInt(3);
@@ -77,6 +85,8 @@ public class Store implements Subject{
             }
             numSales+=1;
         }
+        receipts.add(receipt);
+        if (Inventory.isEmpty()) {notifyObservers("Store was closed due to no inventory.");return;}
     }
 
     public Roll buyRoll(RollEnum Type)
@@ -126,10 +136,30 @@ public class Store implements Subject{
 
     public void endDay()
     {
+        notifyObservers("number of receipts is "+receipts.size());
         for (RollEnum rollType : RollEnum.values()) {
             notifyObservers(getNumRoll(rollType) + " " +rollType.label+" remaining.");
         }
         notifyObservers(numSales+" total daily sales for "+totalSales+" dollars");
+        HashMap<String,Integer> outages=new HashMap<String,Integer>();
+        for (Receipt rec : receipts) {
+            if (rec.impacted)
+                if (!outages.containsKey(rec.customer)) outages.put(rec.customer,1);
+                else outages.replace(rec.customer,outages.get(rec.customer)+1);
+        }
+        for (Map.Entry<String,Integer> entry : outages.entrySet()) notifyObservers(entry.getKey()+" customer type affected by "+entry.getValue()+" outages.");
+
+        HashMap<String,Double> customerSales=new HashMap<String,Double>();
+        for (Receipt rec : receipts) {
+            if (!customerSales.containsKey(rec.customer)) customerSales.put(rec.customer,rec.getTotalAmount());
+            else customerSales.replace(rec.customer,customerSales.get(rec.customer)+rec.getTotalAmount());
+        }
+        for (Map.Entry<String,Double> entry : customerSales.entrySet()) notifyObservers(entry.getKey()+" customer type purchased "+entry.getValue()+" dollars worth of rolls.");
+
+        for (RollEnum rollType : RollEnum.values()) {
+            notifyObservers("sold "+countRollsSold(rollType)+" of "+rollType.label);
+        }
+
 
     }
 
@@ -142,10 +172,23 @@ public class Store implements Subject{
         }
     }
 
+    public int countRollsSold(RollEnum Type) {
+        int counter=0;
+        for (Receipt receipt : receipts) {
+            for (Roll roll : receipt.sales) {
+                if (roll.Type==Type) counter++;
+            }
+        }
+        return counter;
+    }
+
     public void startDay()
     {
         totalSales=0;
         numSales=0;
+        receipts.clear();
+
+
         for (RollEnum rollType : RollEnum.values()) {
             if (getNumRoll(rollType)==0) {
                 RollFactory factory;
@@ -177,6 +220,9 @@ public class Store implements Subject{
                 }
 
             }
+        for (RollEnum rollType : RollEnum.values()) {
+            notifyObservers(getNumRoll(rollType) + " " +rollType.label+" remaining.");
+        }
         }
 }
 

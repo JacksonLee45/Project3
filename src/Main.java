@@ -8,6 +8,8 @@ public class Main {
 
         Store ourStore = new Store(30,30,30,30, 30); //Constructs the Store starts it with 30 rolls each
 
+        StoreAnnouncer Announcer = new StoreAnnouncer();
+        ourStore.registerObserver(Announcer);
 
         Scanner myScanner = new Scanner(System.in); //Creates the scanner object to read in the number of days to simulate the store
         System.out.println("How many days shall the Store run for?");
@@ -15,10 +17,11 @@ public class Main {
 
         for(int i = 1; i <= days; i++) {  //Simulates Each Day
 
-            Roll roll=new JellyRoll();
-            roll=new Sauce(roll);
-            System.out.println(roll.cost());
+            System.out.println("Day: " + i);
 
+            Roll roll = new JellyRoll();
+            roll = new Sauce(roll);
+            System.out.println(roll.cost());
 
 
             //Customers return an array with the quantities of their purchases in this form:
@@ -31,14 +34,20 @@ public class Main {
             Person testCustomer = new Person();
             int[] numBoughtCustomer = testCustomer.buyRoll();
             System.out.println(Arrays.toString(numBoughtCustomer));
+            ourStore.editInventory(numBoughtCustomer);
 
             BusinessPerson testBusiness = new BusinessPerson();
             int[] numBoughtBusiness = testBusiness.buyRoll();
             System.out.println(Arrays.toString(numBoughtBusiness));
+            ourStore.editInventory(numBoughtBusiness);
 
             Catering testCatering = new Catering();
             int[] numBoughtCatering = testCatering.buyRoll();
             System.out.println(Arrays.toString(numBoughtCatering));
+            ourStore.editInventory(numBoughtCatering);
+
+            ourStore.printInventory();
+
 
         }
 

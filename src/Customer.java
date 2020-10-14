@@ -1,15 +1,16 @@
+import java.util.ArrayList;
 
 abstract class Customer {
     //Class for all Customers
+    ArrayList<RollEnum> Order=new ArrayList<RollEnum>();
+    String name="";
 
-    String name;
+    public ArrayList<RollEnum> getOrder() {
+        return Order;
+    }
 
-    public abstract int[] buyRoll();
+    public abstract boolean isSatisfied(ArrayList<Roll> Basket);
         //Decides on how many rolls to buy (1-3 rolls of a single type)
-
-
-    public abstract void chooseRoll();
-        //Different customer types have different approaches on how they select a roll type
 
 
 }

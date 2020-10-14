@@ -6,4 +6,7 @@ public class Topping extends Extra {
     public double cost() {
         return 1.00+roll.cost();
     }
+    public String description() {
+        return roll.description()+" with topping";
+    }
 }

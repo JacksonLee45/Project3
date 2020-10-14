@@ -1,12 +1,11 @@
-//Class for the Store
-            /*
-            The store will maintain sales data, inventory levels, costs of
-            orders, and special events for daily display and summary statistics.
-             */
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Store implements Subject{
 
     private String updateText;
+
+    private ArrayList<Roll> Inventory= new ArrayList<Roll>();
 
     private java.util.ArrayList observers = new java.util.ArrayList();
 
@@ -21,84 +20,104 @@ public class Store implements Subject{
     public void notifyObservers() {
         for (int i = 0; i < observers.size(); i++) {
             Observer observer = (Observer)observers.get(i);
-            observer.update("The Store Currently Has: \n" + springRoll + " Spring Rolls\n" + eggRoll + " Egg Rolls\n" + sausageRoll + " Suasage Rolls\n" + jellyRoll + " Jelly Rolls\n" + "Sales = $"+ numSales); }
+            //observer.update("The Store Currently Has: \n" + springRoll + " Spring Rolls\n" + eggRoll + " Egg Rolls\n" + sausageRoll + " Suasage Rolls\n" + jellyRoll + " Jelly Rolls\n" + "Sales = $"+ numSales);
+        }
     }
 
+    public void notifyObservers(String update) {
+        for (int i = 0; i < observers.size(); i++) {
+            Observer observer = (Observer) observers.get(i);
+            observer.update(update);
+        }
+    }
 
-    int springRoll; //Attributes to hold the number of Rolls the Store has in inventory
-    int eggRoll;
-    int pastryRoll;
-    int sausageRoll;
-    int jellyRoll;
     float numSales;
-
-    final float srPrice = 1.25f;
-    final float erPrice = 1.50f;
-    final float prPrice = 1.75f;
-    final float sasrPrice = 2.00f; //sausage roll price
-    final float jrPrice = 2.25f;
 
     public void update(String update){
         System.out.println(update);
     }
 
-    public Store(int numSpringRoll, int numEggRoll, int numPastryRoll, int numSausageRoll, int numJellyRoll) {
+    public Store(int scale) {
         //Constructor for the Store
-        springRoll = numSpringRoll;
-        eggRoll = numEggRoll;
-        pastryRoll = numPastryRoll;
-        sausageRoll = numSausageRoll;
-        jellyRoll = numJellyRoll;
+        RollFactory factory=new PastryRollFactory();
+        Inventory.addAll(factory.orderRolls(scale));
+
+        factory=new SpringRollFactory();
+        Inventory.addAll(factory.orderRolls(scale));
+
+        factory=new EggRollFactory();
+        Inventory.addAll(factory.orderRolls(scale));
+
+        factory=new SausageRollFactory();
+        Inventory.addAll(factory.orderRolls(scale));
+
+        factory=new JellyRollFactory();
+        Inventory.addAll(factory.orderRolls(scale));
+
         numSales = 0.0f;
     }
 
+    public void takeCustomer(Customer customer) {
+        if (Inventory.isEmpty()) {notifyObservers("Customer left because the store was closed due to no inventory.");return;}
+        ArrayList<Roll> basket = new ArrayList<Roll>();
+        while (!customer.getOrder().isEmpty()) {
 
-    public void editInventory(int[] purchases){
-        for(int i = 0; i < 8; i++) { //loops through each purchase
-            if(i == 0) { //edit spring rolls
-                springRoll -= purchases[i];
-                numSales += srPrice;
+            ArrayList<RollEnum> tempList = customer.getOrder();
+            for (RollEnum roll : tempList) {
+                basket.add(buyRoll(roll));
+                Inventory.remove(roll);
             }
-            if(i == 1){ //edit egg rolls
-                eggRoll -= purchases[i];
-                numSales += erPrice;
+            while (basket.remove(null)) ;
+            if (!customer.isSatisfied(basket)) {
+                Inventory.addAll(basket);
+                basket.clear();
             }
-            if(i == 2){
-                pastryRoll -= purchases[i];
-                numSales += prPrice;
-            }
-            if(i == 3){
-                sausageRoll -= purchases[i];
-                numSales += sasrPrice;
-            }
-            if(i == 4){
-                jellyRoll -= purchases[i];
-                numSales += jrPrice;
-            }
-            if(i == 5){ //handles sauce sales
-                numSales += .25f * purchases[i];
-            }
-            if(i == 6){ //handles filling sales
-                numSales += .25f * purchases[i];
-            }
-            if(i == 7){ //handles toppings
-                numSales += .25f * purchases[i];
-            }
+        }
+        if (basket.isEmpty()) notifyObservers(customer.name+" didn't buy anything.");
+        else for (Roll roll : basket) {
+            Random rand = new Random();
+            int roll1 = rand.nextInt(3);
+            for (int i=0;i<roll1;i++) roll=sauceRoll(roll);
+            roll1 = rand.nextInt(1);
+            for (int i=0;i<roll1;i++) roll=fillRoll(roll);
+            roll1 = rand.nextInt(2);
+            for (int i=0;i<roll1;i++) roll=topRoll(roll);
+            notifyObservers(customer.name+" bought a "+roll.description()+" for "+roll.cost());
         }
     }
 
+    public Roll buyRoll(RollEnum Type)
+    {
+        for (Roll roll : Inventory) {
+            if (roll.getType().equals(Type)) {
+                return roll;
+            }
+        }
+        notifyObservers("ran out of "+Type.label);
+        //if we're here then we're out of a specific type of roll, notify
+        return null;
+    }
+
+    public Roll sauceRoll(Roll input)
+    {
+        Roll tempRoll = new Sauce(input);
+        return tempRoll;
+    }
+
+    public Roll topRoll(Roll input)
+    {
+        Roll tempRoll = new Topping(input);
+        return tempRoll;
+    }
+
+    public Roll fillRoll(Roll input)
+    {
+        Roll tempRoll = new Filling(input);
+        return tempRoll;
+    }
 
     public void printInventory() {
             notifyObservers();
-        /*
-        System.out.println("Stores Current Inventory");
-        System.out.println("Spring Rolls: " + springRoll);
-        System.out.println("Egg Rolls: " + eggRoll);
-        System.out.println("Pastry Rolls: " + pastryRoll);
-        System.out.println("Sausage Rolls: " + sausageRoll);
-        System.out.println("Total Sales: $" + numSales);
-        */
-
     }
 
 

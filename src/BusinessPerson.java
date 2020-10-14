@@ -6,7 +6,11 @@ public class BusinessPerson extends Customer {
         Order.clear();
         //if any are null then business person is not happy and will return basket
         for (Roll roll : Basket) {
-            if (roll==null) return false;
+            if (roll==null || Basket.size()<10) {
+                Returns.addAll(Basket);
+                Basket.clear();
+                return false;
+            }
         }
         return true;
     }

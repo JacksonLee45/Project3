@@ -3,6 +3,7 @@ import java.util.ArrayList;
 abstract class Customer {
     //Class for all Customers
     ArrayList<RollEnum> Order=new ArrayList<RollEnum>();
+    ArrayList<Roll> Returns=new ArrayList<Roll>();
     String name="";
 
     public ArrayList<RollEnum> getOrder() {

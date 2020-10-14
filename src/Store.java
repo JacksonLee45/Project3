@@ -3,6 +3,8 @@ import java.util.Random;
 import java.util.HashMap;
 import java.util.Map;
 
+//this is where the magic happens, store is the interface between the customer and the rolls
+
 public class Store implements Subject{
 
     private String updateText;
@@ -49,7 +51,7 @@ public class Store implements Subject{
 
         numSales = 0.0f;
     }
-
+    //take customer and provide algorithm for interaction. The most complicated routine in the program.
     public void takeCustomer(Customer customer) {
         if (Inventory.isEmpty()) {notifyObservers("Customer left because the store was closed due to no inventory.");return;}
         ArrayList<Roll> basket = new ArrayList<Roll>();
@@ -133,7 +135,7 @@ public class Store implements Subject{
     public void printInventory() {
             notifyObservers();
     }
-
+    //call at the end of the day and notify observers of output
     public void endDay()
     {
         notifyObservers("number of receipts is "+receipts.size());

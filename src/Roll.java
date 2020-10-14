@@ -1,3 +1,4 @@
+//roll object, this is what people want
 public abstract class Roll {
     RollEnum Type;
     String Desc;

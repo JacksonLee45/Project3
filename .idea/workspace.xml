@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="72c3cf87-d698-45f7-8130-43f112298f87" name="Default Changelist" comment="Working">
+      <change afterPath="$PROJECT_DIR$/30day-30roll.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/30day-45roll.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/30day-60roll.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Receipt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project3/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project3/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project3/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project3/Store.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ic9Ra3n49IdtgJjHgWx4gxLBKu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="RollStore" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Project3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="72c3cf87-d698-45f7-8130-43f112298f87" name="Default Changelist" comment="" />
+      <created>1602196005727</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602196005727</updated>
+      <workItem from="1602640436763" duration="18494000" />
+      <workItem from="1602687646464" duration="4162000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added Roll class and decorator class Extra">
+      <created>1602201539729</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602201539729</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added Roll classes and Roll factories">
+      <created>1602205221335</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602205221335</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Refactored">
+      <created>1602657491235</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602657491235</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Working">
+      <created>1602662131753</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1602662131753</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Roll class and decorator class Extra" />
+    <MESSAGE value="Added Roll classes and Roll factories" />
+    <MESSAGE value="Refactored" />
+    <MESSAGE value="Working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="83" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602200423003">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state x="184" y="83" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.833@0.23.1440.833" timestamp="1602200423003" />
+    <state x="395" y="240" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602691746113">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state x="395" y="240" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.833@0.23.1440.833" timestamp="1602691746113" />
+    <state x="514" y="145" key="#com.intellij.ide.util.MemberChooser" timestamp="1602642344784">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state x="514" y="145" key="#com.intellij.ide.util.MemberChooser/0.23.1440.833@0.23.1440.833" timestamp="1602642344784" />
+    <state x="457" y="218" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1602200943739">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state x="457" y="218" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1440.833@0.23.1440.833" timestamp="1602200943739" />
+    <state width="1358" height="203" key="GridCell.Tab.0.bottom" timestamp="1602691863401">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1358" height="203" key="GridCell.Tab.0.bottom/0.23.1440.833@0.23.1440.833" timestamp="1602691863401" />
+    <state width="1358" height="203" key="GridCell.Tab.0.center" timestamp="1602691863400">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1358" height="203" key="GridCell.Tab.0.center/0.23.1440.833@0.23.1440.833" timestamp="1602691863400" />
+    <state width="1358" height="203" key="GridCell.Tab.0.left" timestamp="1602691863400">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1358" height="203" key="GridCell.Tab.0.left/0.23.1440.833@0.23.1440.833" timestamp="1602691863400" />
+    <state width="1358" height="203" key="GridCell.Tab.0.right" timestamp="1602691863401">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1358" height="203" key="GridCell.Tab.0.right/0.23.1440.833@0.23.1440.833" timestamp="1602691863401" />
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1602662137883">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.23.1440.833@0.23.1440.833" timestamp="1602662137883" />
+    <state x="499" y="352" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602640450734">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state x="499" y="352" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.833@0.23.1440.833" timestamp="1602640450734" />
+  </component>
+</project>
